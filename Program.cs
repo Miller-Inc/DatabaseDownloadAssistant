@@ -20,7 +20,7 @@ namespace DatabaseDownloadAssistant
                     string username = args[1];
                     string password = args[2];
                     Console.WriteLine(username + " " + password);
-                    ValidateUser(username, password);
+                    UserValidation.ValidateUser(username, password);
                 }
             }
         }
