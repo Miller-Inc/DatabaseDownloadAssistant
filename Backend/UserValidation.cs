@@ -51,7 +51,7 @@ namespace DatabaseDownloadAssistant.Backend
                                         role ??= "Guest"; 
                                         Role roleType = Enum.Parse<Role>(role);
                                         Console.WriteLine("user logged in..."); 
-                                        return new User() { Username = username, Role = roleType, IsLoggedIn = true }; // The user is valid
+                                        return new User() { Username = username, Role = roleType, IsLoggedIn = true, Password = password }; // The user is valid
                                     }
                                }
                            }
