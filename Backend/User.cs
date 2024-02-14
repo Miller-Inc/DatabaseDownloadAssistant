@@ -15,7 +15,7 @@ namespace DatabaseDownloadAssistant.Backend
 
         public string Password { get; set; }
 
-        public Role Role;
+        public Role Role { get; set; }
 
         public bool IsLoggedIn { get; set; } = false;
 
