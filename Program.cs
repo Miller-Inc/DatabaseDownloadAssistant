@@ -7,11 +7,9 @@ namespace DatabaseDownloadAssistant
     {
         static void Main(string[] args)
         {
-            string key; // The key to encrypt the database
             if (args.Length > 0)
             {
-                key = args[0];
-                if (args[1] == "new")
+                if (args[0] == "new")
                 {
                     BuildNewDatabase();
                 }
@@ -19,8 +17,19 @@ namespace DatabaseDownloadAssistant
                 {
                     string username = args[1];
                     string password = args[2];
+                    string key = args[3];
+                    if (key == "")
+                    {
+                        key = "b14ca5898a4e4133bbce2ea2315a1916";
+                    }
                     Console.WriteLine(username + " " + password);
-                    UserValidation.ValidateUser(username, password);
+                    User  user = UserValidation.ValidateUser(username, password, key);
+                    string filePath = Environment.GetFolderPath((Environment.SpecialFolder.ApplicationData)) + @"\MillerInc\RecipeDB\user.exe"; 
+                    user.SaveUser(filePath);
+                }
+                else if (args[0] == "download")
+                {
+                    
                 }
             }
         }
